@@ -6,7 +6,7 @@
 On an Arch based distribution as root, run the following:
 
 ```
-curl -LO https://raw.githubusercontent.com/ephjos/JARBS/master/jarbs.sh
+curl -LO ephjos.io/jarbs.sh
 sh jarbs.sh
 ```
 
