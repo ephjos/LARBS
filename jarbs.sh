@@ -14,7 +14,8 @@ while getopts ":a:r:b:p:h" o; do case "${o}" in
 esac done
 
 [ -z "$dotfilesrepo" ] && dotfilesrepo="https://github.com/ephjos/dotfiles.git"
-[ -z "$progsfile" ] && progsfile="https://raw.githubusercontent.com/ephjos/LARBS/master/progs.csv"
+[ -z "$progsfile" ] && progsfile="https://raw.githubusercontent.com/ephjos/JARBS/master/progs.csv"
+[ -z "$issuefile" ] && issuefile="https://raw.githubusercontent.com/ephjos/JARBS/master/issue"
 [ -z "$aurhelper" ] && aurhelper="yay"
 [ -z "$repobranch" ] && repobranch="master"
 
@@ -216,10 +217,14 @@ yes | sudo -u "$name" $aurhelper -S libxft-bgra >/dev/null 2>&1
 
 # Install the dotfiles in the user's home directory
 putgitrepo "$dotfilesrepo" "/home/$name" "$repobranch"
-rm -f "/home/$name/README.md" "/home/$name/LICENSE" "/home/$name/FUNDING.yml"
-# make git ignore deleted LICENSE & README.md files
-git update-index --assume-unchanged "/home/$name/README.md"
-git update-index --assume-unchanged "/home/$name/LICENSE"
+rm -rf \
+  "/home/$name/README.md" \
+  "/home/$name/LICENSE" \
+  "/home/$name/FUNDING.yml" \
+  "/home/$name/.git"
+
+# Set login prompt
+curl -Ls "$issuefile" > /etc/issue
 
 # Most important command! Get rid of the beep!
 systembeepoff
