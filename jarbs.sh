@@ -91,7 +91,7 @@ but is likely to overwrite files and break things. Do you wish to proceed? \
 }
 
 preinstallCheck() {
-    prompt "Are you to start installation?\
+    prompt "Are you ready to start installation?\
  [y/N]" ans
     if [ "y" != "$ans" ] && [ "Y" != "$ans" ]; then
         error "Installation canceled"
