@@ -82,6 +82,7 @@ G,https://github.com/ephjos/st.git,"is my custom build of suckless's terminal em
 G,https://github.com/ephjos/dwm.git,"is the window manager."
 G,https://github.com/ephjos/slock,"is the locking tool"
 ,inotify-tools,"Tools for watching for filesystem changes"
+,entr,"Tool for watching filesystem changes"
 ,discord,"Gamer chat"
 ,docker,"Powerful container software for the 10x developer"
 ,qrencode,"Library for creating QR codes"
